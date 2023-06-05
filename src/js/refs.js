@@ -5,3 +5,4 @@ export const refs = {
     btnLoadMore: document.querySelector('.load-more'),
     gallery: document.querySelector('.gallery')
 }
+

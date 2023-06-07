@@ -6,6 +6,8 @@ import { renderGallery } from './renderGallery.js';
 const API_KEY = '37001773-cee1ba8499dc5914eb991a31e';
 const BASE_URL = 'https://pixabay.com/api/';
 
+let currentPage = 1;
+
 export async function onLoadMore() {
   currentPage += 1;
 
@@ -25,6 +27,9 @@ export async function onLoadMore() {
 
     if (response.data.totalHits <= currentPage * 40) {
       refs.btnLoadMore.classList.add('visually-hidden');
+      Notify.warning(
+        "We're sorry, but you've reached the end of search results."
+      );
     }
   } catch (error) {
     console.log(error.message);
